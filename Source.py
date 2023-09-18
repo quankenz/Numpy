@@ -172,7 +172,7 @@ if __name__ == "__main__":
     t2 = np.array([1], ndmin=2) #HINH BINH HANH
     w  = np.random.randint(-1, 2, (1, 18))
     print(w)
-    bias = 0.5
+    bias = 5.0
     w_old = np.full((1, 18), 0)
     bias_old = 0
     lanlap = 0
