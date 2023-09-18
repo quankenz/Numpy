@@ -155,11 +155,14 @@ def TEST(path):
     try:
         ex = LAYMAU(path)
         result = hardlim(w @ ex + bias)
-        if result == 0:
+        if (result == 0):
+            arr[0] += 1
             print(path, '==> HINH CHU NHAT')
-        elif result == 1:
+        else:
+            arr[1] += 1
             print(path, '==> HINH BINH HANH')
     except:
+        arr[2] += 1
         print(path, "==> CHUA BIET HINH NAY LA HINH GI")
 if __name__ == "__main__":
     p1 = LAYMAU('picture/HINHCHUNHAT.png')
@@ -186,10 +189,17 @@ if __name__ == "__main__":
         bias = bias + e
 
         lanlap += 2
+    arr = [0, 0, 0]
     print('Da hoc xong voi so lan lap la {0}'.format(lanlap))
     print('Ma tran trong so w = ', w)
     print('Bias = ', bias)
+    print("\n")
+    
     TEST('picture/HINHCHUNHATTEST.png')
     TEST('picture/HINHBINHHANHTEST.png')
     TEST('picture/HINHKHACLA.png')
     TEST('picture/HINHTRON.png')
+    print("\n")
+    print("Hình chữ nhật có ", arr[0], " hình")
+    print("Hình bình hành có ", arr[1], " hình")
+    print("Có ", arr[2], " không xác định được")
