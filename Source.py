@@ -155,13 +155,11 @@ def TEST(path):
     try:
         ex = LAYMAU(path)
         result = hardlim(w @ ex + bias)
+        if result == 0:
+            print(path, '==> HINH CHU NHAT')
+        elif result == 1:
+            print(path, '==> HINH BINH HANH')
     except:
-        result = -1
-    if result == 0:
-        print(path, '==> HINH CHU NHAT')
-    elif result == 1:
-        print(path, '==> HINH BINH HANH')
-    else:
         print(path, "==> CHUA BIET HINH NAY LA HINH GI")
 if __name__ == "__main__":
     p1 = LAYMAU('picture/HINHCHUNHAT.png')
